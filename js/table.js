@@ -1,4 +1,4 @@
-const products = document.querySelectorAll('.product button');
+const products = document.querySelectorAll('.productinfo');
 const cartItems = document.querySelector('.cart ul');
 const cartTotal = document.querySelector('.cart p');
 let total = 0;
@@ -19,22 +19,6 @@ products.forEach(product => {
 		cartData.push(cartItem);
 		
 		renderCart();
-	});
-});
-
-products.forEach(product => {
-	product.addEventListener('click', () => {
-		const productInfo = product.parentElement;
-		const productName = productInfo.querySelector('h2').textContent;
-		const productPrice = productInfo.querySelector('p').textContent;
-		
-		const cartItem = document.createElement('li');
-		cartItem.textContent = `${productName} - ${productPrice}`;
-		
-		const price = Number(productPrice.replace('Price: ฿', ''));
-		
-		total += price;
-		cartTotal.textContent = `Total: ฿${total.toFixed(2)}`;
 	});
 });
 
@@ -81,5 +65,20 @@ checkoutBtn.addEventListener('click', () => {
 	renderCart();
 });
 
+// product click
+document.getElementById('product').addEventListener("click", activate);
+document.getElementById('overlay').addEventListener("click", unactivate);
+document.getElementById('close').addEventListener("click", unactivate);
+document.getElementById('addcart').addEventListener("click", unactivate);
 
-  
+function activate() {
+	document.querySelector('.product').classList.add('activate');
+	document.querySelector('.close-btn').classList.add('activate');
+	document.querySelector('.overlay').classList.add('activate');
+}
+
+function unactivate() {
+	document.querySelector('.product').classList.remove('activate');
+	document.querySelector('.close-btn').classList.remove('activate');
+	document.querySelector('.overlay').classList.remove('activate');
+}

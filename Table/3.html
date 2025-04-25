@@ -1,35 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA_Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>My Store</title>
-	<link rel="stylesheet" type="text/css" href="../css/table.css">
+	<link rel="stylesheet" href="../css/table.css">
 </head>
 <body>
+	<div id="overlay" class="overlay"></div>
+
 	<header>
-		<h1>My Store</h1>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Shop</a></li>
-				<li><a href="#">Cart</a></li>
-			</ul>
-		</nav>
+		<img src="../image/banner.jpg">
 	</header>
 	
+	<nav>
+		<ul>
+			<a href="#recommend" class="bar active"><li>เมนูแนะนำ</li></a>
+			<a href="#coffee" class="bar"><li>กาแฟ</li></a>
+			<a href="#tea" class="bar"><li>ชา</li></a>
+			<a href="#milk" class="bar"><li>นมโกโก้และคาราเมล</li></a>
+			<a href="#soda" class="bar"><li>น้ำโซดา และอื่นๆ</li></a>
+		</ul>
+	</nav>
 	<main>
+		<div class="title" id="recommend"><h1 class="header">RECOMMENDED MENU</h1><h1>おすすめされた </h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
 		<section class="products">
-			<div class="product">
-				<h2>Product 1</h2>
-				<p>Price: ฿10.00</p>
-				<button>Add to Cart</button>
+			<div id="product" class="product">
+				<button id="close" class="close-btn" >×</button>
+				<img src="../image/1.png">
+				<div class="productinfo">
+					<h2>FRESH MILK</h2>
+					<p>Price: ฿45.00</p>
+					<button><p>Add Cart </p><box-icon name='cart' type='solid' flip='horizontal' color='#705f50' ></box-icon></button>
+				</div>
 			</div>
-			<div class="product">
-				<h2>Product 2</h2>
-				<p>Price: ฿15.00</p>
-				<button>Add to Cart</button>
+			<div id="product" class="product">
+				<img src="../image/2.png">
+				<div class="productinfo">
+					<h2>AMERICANO</h2>
+					<p>Price: ฿65.00</p>
+				</div>
+			</div>
+			<div id="product" class="product">
+				<img src="../image/3.png">
+				<div class="productinfo">
+					<h2>BLACK TEA</h2>
+					<p>Price: ฿65.00</p>
+				</div>
+			</div>
+			<div id="product" class="product">
+				<img src="../image/4.png">
+				<div class="productinfo">
+					<h2>CAPPUCCINO</h2>
+					<p>Price: ฿60.00</p>
+				</div>
+			</div>
+			<div id="product" class="product">
+				<img src="../image/5.png">
+				<div class="productinfo">
+					<h2>ESPRESSO</h2>
+					<p>Price: ฿75.00</p>
+				</div>
+			</div>
+			<div id="product" class="product">
+				<img src="../image/6.png">
+				<div class="productinfo">
+					<h2>CARROT JUICE</h2>
+					<p>Price: ฿35.00</p>
+				</div>
+			</div>
+			<div id="product" class="product">
+				<img src="../image/7.png">
+				<div class="productinfo">
+					<h2>MILKSHAKE</h2>
+					<p>Price: ฿35.00</p>
+				</div>
 			</div>
 		</section>
-		
+		<div class="title" id="coffee"><h1 class="header">HOT COFFEE<h1>ホットコーヒー </h1></h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
+		<div class="title"><h1 class="header">ICED COFFEE<h1>アイスコーヒー </h1></h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
+		<div class="title" id="tea"><h1 class="header">HOT TEA<h1>温かいお茶 </h1></h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
+		<div class="title"><h1 class="header">ICED TEA<h1>アイスティー </h1></h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
+		<div class="title" id="milk"><h1 class="header">HOT MILK<h1>ホットミルク </h1></h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
+		<div class="title"><h1 class="header">ICED MILK<h1>アイスミルク </h1></h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
+		<div class="title" id="soda"><h1 class="header">SODA<h1>ソーダ </h1></h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
+		<div class="title"><h1 class="header">SMOOTHIE<h1>スムージー </h1></h1><div class="line"><div class="x"></div class="x"><div class="y"></div></div></div>
 		<section class="cart">
 			<h2>Cart</h2>
 			<ul>
@@ -39,14 +95,14 @@
 			<button>Checkout</button>
 		</section>
 		
-		<p id="table" data-value="3"></p>
+		<p id="table" data-value="1"></p>
 
 	</main>
 	
 	<footer>
 		<p>&copy; 2023 My Store</p>
 	</footer>
-	
+	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 	<script src="../js/table.js"></script>
 </body>
 </html>

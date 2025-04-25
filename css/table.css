@@ -1,51 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200;400&display=swap');
+
+/* scollbar */
+	/* width */
+	::-webkit-scrollbar {
+		width: 20px;
+	}
+  
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: transparent; 
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #3f240f; 
+		border-radius: 10px;
+	}
+
+
+/* main */
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	font-family: Arial, sans-serif;
+	background-color: #fff2d5;
+	font-family: 'Prompt', sans-serif;
+	color: #705f50;
 }
 
-header {
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
+header>img {
+	width: 100%;
 }
 
-nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+ul {
 	display: flex;
-	justify-content: space-between;
+	justify-content: start;
+	list-style-type: none;
+	padding-left: 15px;
+	margin-bottom: -2px;
 }
 
-nav ul li {
-	margin: 0 10px;
-}
-
-nav ul li a {
-	color: #fff;
+.bar {
 	text-decoration: none;
+	color: #333;
+	background-color: #EBE0D0;
+	width: 5%;
+	height: 0px;
+	padding: 60px;
+	margin-right:10px;
+	border-radius: 10px 10px 0 0;
+	border-style: solid solid none solid;
+  	border-width: 2px;
+	border-color: #705f50;
+	display: flex;
+	align-items: center;
+	z-index: 1;
+	position:relative;
+}
+
+.active>li,.active{
+	position:relative;
+	z-index: 8;
+	background-color: #EFEBE0;
+}
+
+li {
+	background-color: #EBE0D0;
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	font-weight: medium;
 }
 
 main {
-	margin: 20px;
-	display: flex;
-	justify-content: space-between;
+	margin: 0 20px 20px 15px;
+	background-color: #EFEBE0;
+	border-radius: 0 10px 10px 10px;
+	border-style: solid;
+  	border-width: 2px;
+	border-color: #705f50;
+	position:relative;
 }
 
+.title {
+	display: flex;
+}
+
+.header {
+	margin-left: -10px;
+	padding-left: 20px;
+	font-weight: medium;
+	letter-spacing: 10px;
+	
+}
+
+.title>h1{
+	padding-left:30px;
+	display: inline-block;
+	font-weight: normal;
+	letter-spacing: 5px;
+}
+
+.line>.y {
+	position: relative;
+	top: 30px;
+	margin-left: 10px;
+	background-color: #705f50;
+	width: 500px;
+	height: 1px;
+}
+
+.line>.x {
+	position: relative;
+	top: 40px;
+	left: 510px;
+	background-color: #705f50;
+	width: 1px;
+	max-width: 500px;
+	height: 20px;
+}
+
+/* product */
 .products {
-	flex: 2;
+	padding: 0 20px 20px 20px;
+	display: flex;
+	margin-top: -20px;
+	flex-wrap: wrap;
+	cursor: pointer;
+}
+
+.product>img {
+	width: 175px;
+	position: absolute;
 }
 
 .product {
-	background-color: #eee;
-	padding: 20px;
-	margin-bottom: 10px;
+	background-color: #EFEBE0;
+	width: 175px;
+	height: 225px;
+	padding: 0 20px 20px 20px;
+	margin-top: 10px;
+	margin-right: 10px;
+	border-radius: 4px;
+	box-shadow: #705f50 0 0 3px;
+}
+
+.product:hover {
+	transform: scale(1.03);
+  	transition: transform 0.2s ease-in-out;
+}
+
+.product.activate {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 999;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	padding: 80px 70px;
+	border-radius: 12px;
+	cursor: auto;
+}
+
+.product.activate>img {
+	top: 40px;
+}
+.product.activate>div {
+	top: 100px;
+}
+
+.product.activate>div>button {
+	display: flex;
+  	align-items: center;  
+  	justify-content: center;
+	font-weight: bold;
+	padding: 5px;
+	margin: 5px;
+	height: 30px;
+	background-color: #EBE0D0;
+	border-color: #333;
+}
+
+.product.activate>div>button>p {
+	padding: 5px;
+}
+
+.close-btn{
+	display: none;
+}
+
+.close-btn.activate {
+	display: block;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background: transparent;
+	border: none;
+	font-size: 40px;
+	cursor: pointer;
+	z-index: 1000;
+	color: #3f240f;
+  }
+
+  .overlay{
+	display: none;
+  }
+
+.overlay.activate {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	z-index: 998;
+  }
+  
+
+.productinfo {
+	position: relative;
+	top: 155px;
+}
+.productinfo>p {
+	position: relative;
+	top: -15px;
+}
+.productinfo>button {
+	display: none;
+	position: relative;
+	top: 30px;
+	left: 100px;
+	background-color: transparent;
+	border-color: transparent;
+	cursor: pointer;
+	text-align: center;
 }
 
 .cart {
+	display: block;
 	flex: 1;
-	background-color: #f2f2f2;
+	background-color: #EFEBE0;
 	padding: 20px;
 }
 
@@ -60,8 +260,8 @@ main {
 }
 
 footer {
-	background-color: #333;
-	color: #fff;
+	background-color: #3f240f;
+	color: #EFEBE0;
 	padding: 20px;
 	text-align: center;
 }
